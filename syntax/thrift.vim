@@ -24,7 +24,7 @@ syn keyword thriftStructure namespace enum senum struct union exception service
 syn keyword thriftTypedef typedef
 
 " NOTE: must be defined after thriftNumber to take priority
-syn match   thriftSpecial '\<\d\+:'
+syn match   thriftSpecial '\%(+\|\<\)0*[1-9]\d*\s*:'
 
 syn keyword thriftTodo TODO FIXME XXX contained
 
