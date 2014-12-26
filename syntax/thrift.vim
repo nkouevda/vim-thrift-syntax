@@ -13,6 +13,7 @@ syn match   thriftComment '\%(#\|//\).*' contains=thriftTodo
 syn region  thriftString start=+\z(['"]\)+ skip=+\\\\\|\\['"]+ end='\z1'
 syn match   thriftNumber '[+-]\?\<\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn match   thriftNumber '[+-]\?\%(\<\d+\)\?\.\d\+\%([Ee][+-]\?\d\+\)\?\>'
+syn match   thriftNumber '\<0x[0-9A-Fa-f]\+\>'
 syn keyword thriftBoolean true false
 
 syn keyword thriftKeyword extends throws
