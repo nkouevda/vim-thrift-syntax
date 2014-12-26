@@ -11,14 +11,16 @@ syn region  thriftComment start='/\*' end='\*/' contains=thriftTodo
 syn match   thriftComment '\%(#\|//\).*' contains=thriftTodo
 
 syn region  thriftString start=+\z(['"]\)+ skip=+\\\\\|\\['"]+ end='\z1'
-syn match   thriftNumber '[+-]\?\%(\%(\<\d+\)\?\.\|\<\)\d\+\%([Ee][+-]\?\d\+\)\?\>'
+syn match   thriftNumber '[+-]\?\<\d\+\%([Ee][+-]\?\d\+\)\?\>'
+syn match   thriftNumber '[+-]\?\%(\<\d+\)\?\.\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn keyword thriftBoolean true false
 
 syn keyword thriftKeyword extends throws
 
 syn keyword thriftInclude include cpp_include
 
-syn keyword thriftType void bool byte i16 i32 i64 double string binary slist map set list cpp_type
+syn keyword thriftType bool byte i16 i32 i64 double string binary slist
+syn keyword thriftType void map set list cpp_type
 syn keyword thriftStorageClass const required optional oneway
 syn keyword thriftStructure namespace enum senum struct union exception service
 syn keyword thriftTypedef typedef
