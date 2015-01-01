@@ -1,5 +1,5 @@
 " Nikita Kouevda
-" 2014/12/26
+" 2014/12/31
 
 if version < 600
   syntax clear
@@ -29,7 +29,7 @@ syn keyword thriftTypedef typedef
 " NOTE: must be defined after thriftNumber to take priority
 syn match   thriftSpecial '\%(+\|\<\)0*[1-9]\d*\s*:'
 
-syn keyword thriftTodo TODO FIXME XXX contained
+syn keyword thriftTodo TODO FIXME XXX NOTE contained
 
 if version >= 508 || !exists('did_thrift_syn_inits')
   if version < 508
