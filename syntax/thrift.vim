@@ -1,5 +1,5 @@
 " Nikita Kouevda
-" 2014/12/31
+" 2015/01/10
 
 if version < 600
   syntax clear
@@ -10,7 +10,7 @@ endif
 syn region  thriftComment start='/\*' end='\*/' contains=thriftTodo
 syn match   thriftComment '\%(#\|//\).*' contains=thriftTodo
 
-syn region  thriftString start=+\z(['"]\)+ skip=+\\\\\|\\['"]+ end='\z1'
+syn region  thriftString start=+\z(['"]\)+ skip=+\\[\\'"]+ end='\z1'
 syn match   thriftNumber '[+-]\?\<\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn match   thriftNumber '[+-]\?\%(\<\d+\)\?\.\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn match   thriftNumber '\<0x[0-9A-Fa-f]\+\>'
