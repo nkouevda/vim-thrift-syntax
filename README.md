@@ -1,4 +1,4 @@
-# vim-thrift
+# vim-thrift-syntax
 
 [Apache Thrift](https://thrift.apache.org/) syntax highlighting for vim.
 
