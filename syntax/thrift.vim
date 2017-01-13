@@ -7,7 +7,10 @@ endif
 syn region  thriftComment start='/\*' end='\*/' contains=thriftTodo,@Spell
 syn match   thriftComment '\%(#\|//\).*' contains=thriftTodo,@Spell
 
-syn region  thriftString start=+\z(['"]\)+ skip=+\\[\\'"]+ end='\z1' contains=@Spell
+syn region  thriftString start=+\z(['"]\)+ end=+\z1\|$+ contains=thriftEscape,thriftEscapeError,@Spell
+syn match   thriftEscapeError '\\.' contained
+syn match   thriftEscape +\\[\\"'nrt]+ contained
+
 syn match   thriftNumber '[+-]\?\<\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn match   thriftNumber '[+-]\?\%(\<\d+\)\?\.\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn match   thriftNumber '\<0x[0-9A-Fa-f]\+\>'
@@ -37,16 +40,25 @@ if version >= 508 || !exists('did_thrift_syn_inits')
   endif
 
   HiLink thriftComment Comment
+
   HiLink thriftString String
   HiLink thriftNumber Number
   HiLink thriftBoolean Boolean
+
   HiLink thriftKeyword Keyword
+
   HiLink thriftInclude Include
+
   HiLink thriftType Type
   HiLink thriftStorageClass StorageClass
   HiLink thriftStructure Structure
   HiLink thriftTypedef Typedef
+
   HiLink thriftSpecial Special
+  HiLink thriftEscape SpecialChar
+
+  HiLink thriftEscapeError Error
+
   HiLink thriftTodo Todo
 
   delcommand HiLink
