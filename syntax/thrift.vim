@@ -4,10 +4,10 @@ elseif exists('b:current_syntax')
   finish
 endif
 
-syn region  thriftComment start='/\*' end='\*/' contains=thriftTodo
-syn match   thriftComment '\%(#\|//\).*' contains=thriftTodo
+syn region  thriftComment start='/\*' end='\*/' contains=thriftTodo,@Spell
+syn match   thriftComment '\%(#\|//\).*' contains=thriftTodo,@Spell
 
-syn region  thriftString start=+\z(['"]\)+ skip=+\\[\\'"]+ end='\z1'
+syn region  thriftString start=+\z(['"]\)+ skip=+\\[\\'"]+ end='\z1' contains=@Spell
 syn match   thriftNumber '[+-]\?\<\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn match   thriftNumber '[+-]\?\%(\<\d+\)\?\.\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn match   thriftNumber '\<0x[0-9A-Fa-f]\+\>'
