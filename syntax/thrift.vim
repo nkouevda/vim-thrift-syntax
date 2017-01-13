@@ -14,16 +14,17 @@ syn match   thriftEscape +\\[\\"'nrt]+ contained
 syn match   thriftNumber '[+-]\?\<\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn match   thriftNumber '[+-]\?\%(\<\d+\)\?\.\d\+\%([Ee][+-]\?\d\+\)\?\>'
 syn match   thriftNumber '\<0x[0-9A-Fa-f]\+\>'
+
 syn keyword thriftBoolean true false
 
 syn keyword thriftKeyword extends throws
 
-syn keyword thriftInclude include cpp_include
+syn keyword thriftInclude namespace include cpp_include
 
-syn keyword thriftType bool byte i16 i32 i64 double string binary slist
+syn keyword thriftType bool byte i8 i16 i32 i64 double string binary slist
 syn keyword thriftType void map set list cpp_type
 syn keyword thriftStorageClass const required optional oneway
-syn keyword thriftStructure namespace enum senum struct union exception service
+syn keyword thriftStructure enum senum struct union exception service
 syn keyword thriftTypedef typedef
 
 syn match   thriftMember '\%(+\|\<\)0*[1-9]\d*\s*:'
