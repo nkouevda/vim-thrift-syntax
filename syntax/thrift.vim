@@ -26,8 +26,7 @@ syn keyword thriftStorageClass const required optional oneway
 syn keyword thriftStructure namespace enum senum struct union exception service
 syn keyword thriftTypedef typedef
 
-" NOTE: must be defined after thriftNumber to take priority
-syn match   thriftSpecial '\%(+\|\<\)0*[1-9]\d*\s*:'
+syn match   thriftMember '\%(+\|\<\)0*[1-9]\d*\s*:'
 
 syn keyword thriftTodo TODO FIXME XXX NOTE contained
 
@@ -54,7 +53,7 @@ if version >= 508 || !exists('did_thrift_syn_inits')
   HiLink thriftStructure Structure
   HiLink thriftTypedef Typedef
 
-  HiLink thriftSpecial Special
+  HiLink thriftMember Special
   HiLink thriftEscape SpecialChar
 
   HiLink thriftEscapeError Error
