@@ -17,6 +17,8 @@ syn match   thriftNumber '\<0x[0-9A-Fa-f]\+\>'
 
 syn keyword thriftBoolean true false
 
+syn match   thriftIdentifier '\%(+\|\<\)0*[1-9]\d*\s*:'
+
 syn keyword thriftKeyword extends throws
 
 syn keyword thriftInclude namespace include cpp_include
@@ -24,10 +26,10 @@ syn keyword thriftInclude namespace include cpp_include
 syn keyword thriftType bool byte i8 i16 i32 i64 double string binary slist
 syn keyword thriftType void map set list cpp_type
 syn keyword thriftStorageClass const required optional oneway
-syn keyword thriftStructure enum senum struct union exception service
+syn keyword thriftStructure enum senum struct union exception service nextgroup=thriftName skipwhite
 syn keyword thriftTypedef typedef
 
-syn match   thriftMember '\%(+\|\<\)0*[1-9]\d*\s*:'
+syn match   thriftName '\<[A-Z_]\w*' contained
 
 syn keyword thriftTodo TODO FIXME XXX NOTE contained
 
@@ -45,6 +47,8 @@ if version >= 508 || !exists('did_thrift_syn_inits')
   HiLink thriftNumber Number
   HiLink thriftBoolean Boolean
 
+  HiLink thriftIdentifier Identifier
+
   HiLink thriftKeyword Keyword
 
   HiLink thriftInclude Include
@@ -54,7 +58,7 @@ if version >= 508 || !exists('did_thrift_syn_inits')
   HiLink thriftStructure Structure
   HiLink thriftTypedef Typedef
 
-  HiLink thriftMember Special
+  HiLink thriftName Special
   HiLink thriftEscape SpecialChar
 
   HiLink thriftEscapeError Error
