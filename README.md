@@ -4,7 +4,7 @@
 
 ## Example
 
-![vim-thrift-syntax.png](https://github.com/nkouevda/images/raw/master/vim-thrift-syntax.png)
+![vim-thrift-syntax.png](https://github.com/nkouevda/images/raw/main/vim-thrift-syntax.png)
 
 ## License
 
