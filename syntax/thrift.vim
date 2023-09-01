@@ -1,6 +1,4 @@
-if version < 600
-  syntax clear
-elseif exists('b:current_syntax')
+if exists('b:current_syntax')
   finish
 endif
 
@@ -33,39 +31,28 @@ syn match   thriftName '\<[A-Z_]\w*' contained
 
 syn keyword thriftTodo TODO FIXME XXX NOTE contained
 
-if version >= 508 || !exists('did_thrift_syn_inits')
-  if version < 508
-    let did_thrift_syn_inits = 1
-    command! -nargs=+ HiLink hi link <args>
-  else
-    command! -nargs=+ HiLink hi def link <args>
-  endif
+hi def link thriftComment Comment
 
-  HiLink thriftComment Comment
+hi def link thriftString String
+hi def link thriftNumber Number
+hi def link thriftBoolean Boolean
 
-  HiLink thriftString String
-  HiLink thriftNumber Number
-  HiLink thriftBoolean Boolean
+hi def link thriftIdentifier Identifier
 
-  HiLink thriftIdentifier Identifier
+hi def link thriftKeyword Keyword
 
-  HiLink thriftKeyword Keyword
+hi def link thriftInclude Include
 
-  HiLink thriftInclude Include
+hi def link thriftType Type
+hi def link thriftStorageClass StorageClass
+hi def link thriftStructure Structure
+hi def link thriftTypedef Typedef
 
-  HiLink thriftType Type
-  HiLink thriftStorageClass StorageClass
-  HiLink thriftStructure Structure
-  HiLink thriftTypedef Typedef
+hi def link thriftName Special
+hi def link thriftEscape SpecialChar
 
-  HiLink thriftName Special
-  HiLink thriftEscape SpecialChar
+hi def link thriftEscapeError Error
 
-  HiLink thriftEscapeError Error
-
-  HiLink thriftTodo Todo
-
-  delcommand HiLink
-endif
+hi def link thriftTodo Todo
 
 let b:current_syntax = 'thrift'
